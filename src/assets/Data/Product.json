@@ -1,0 +1,200 @@
+[
+  {
+    "id": "p-1001",
+    "name": "Rise Again Eau de Parfum 50ml",
+    "brand": "Nosteza",
+    "category": "Men",
+    "price": 2450,
+    "rating": 4.6,
+    "inStock": true,
+    "image": "/images/product01.jpeg",
+    "createdAt": "2024-10-12T10:00:00Z"
+  },
+  {
+    "id": "p-1002",
+    "name": "Shy Petal 50ml",
+    "brand": "Nosteza",
+    "category": "Women",
+    "price": 2650,
+    "rating": 4.4,
+    "inStock": false,
+    "image": "/images/product02.jpeg",
+    "createdAt": "2025-02-18T10:00:00Z"
+  },
+  {
+    "id": "p-1003",
+    "name": "Ocean Breeze Eau de Toilette 100ml",
+    "brand": "Aromatique",
+    "category": "Men",
+    "price": 3150,
+    "rating": 4.3,
+    "inStock": true,
+    "image": "/images/product02.jpeg",
+    "createdAt": "2025-03-05T12:30:00Z"
+  },
+  {
+    "id": "p-1004",
+    "name": "Velvet Rose Eau de Parfum 75ml",
+    "brand": "Fiorenza",
+    "category": "Women",
+    "price": 3890,
+    "rating": 4.7,
+    "inStock": false,
+    "image": "/images/product03.jpeg",
+    "createdAt": "2025-01-20T14:00:00Z"
+  },
+  {
+    "id": "p-1005",
+    "name": "Citrus Splash Eau de Cologne 90ml",
+    "brand": "Nosteza",
+    "category": "Unisex",
+    "price": 2990,
+    "rating": 4.2,
+    "inStock": true,
+    "image": "/images/product04.jpeg",
+    "createdAt": "2024-11-11T09:15:00Z"
+  },
+  {
+    "id": "p-1006",
+    "name": "Amber Night 100ml",
+    "brand": "Lure Essence",
+    "category": "Men",
+    "price": 4250,
+    "rating": 4.8,
+    "inStock": true,
+    "image": "/images/product05.jpeg",
+    "createdAt": "2025-04-02T16:45:00Z"
+  },
+  {
+    "id": "p-1007",
+    "name": "Blush Bloom Eau de Parfum 50ml",
+    "brand": "Fiorenza",
+    "category": "Women",
+    "price": 2750,
+    "rating": 4.5,
+    "inStock": false,
+    "image": "/images/product06.jpeg",
+    "createdAt": "2025-02-10T10:20:00Z"
+  },
+  {
+    "id": "p-1008",
+    "name": "Mystic Oud Eau de Parfum 80ml",
+    "brand": "Nosteza",
+    "category": "Unisex",
+    "price": 4890,
+    "rating": 4.9,
+    "inStock": true,
+    "image": "/images/product05.jpeg",
+    "createdAt": "2024-12-25T11:40:00Z"
+  },
+  {
+    "id": "p-1009",
+    "name": "Fresh Mint Splash 100ml",
+    "brand": "Aromatique",
+    "category": "Men",
+    "price": 3100,
+    "rating": 4.1,
+    "inStock": false,
+    "image": "/images/product02.jpeg",
+    "createdAt": "2025-01-15T18:30:00Z"
+  },
+  {
+    "id": "p-1010",
+    "name": "Golden Aura Eau de Parfum 60ml",
+    "brand": "Lure Essence",
+    "category": "Women",
+    "price": 3350,
+    "rating": 4.6,
+    "inStock": true,
+    "image": "/images/product04.jpeg",
+    "createdAt": "2025-03-22T08:10:00Z"
+  },
+  {
+    "id": "p-1011",
+    "name": "Royal Musk Eau de Toilette 100ml",
+    "brand": "Nosteza",
+    "category": "Unisex",
+    "price": 4550,
+    "rating": 4.7,
+    "inStock": true,
+    "image": "/images/product02.jpeg",
+    "createdAt": "2025-04-12T20:00:00Z"
+  },
+  {
+    "id": "p-1012",
+    "name": "Jasmine Whisper Eau de Parfum 50ml",
+    "brand": "Fiorenza",
+    "category": "Women",
+    "price": 2950,
+    "rating": 4.4,
+    "inStock": false,
+    "image": "/images/product03.jpeg",
+    "createdAt": "2025-02-28T07:50:00Z"
+  },
+  {
+    "id": "p-1013",
+    "name": "Woody Forest 100ml",
+    "brand": "Aromatique",
+    "category": "Men",
+    "price": 3650,
+    "rating": 4.3,
+    "inStock": true,
+    "image": "/images/product06.jpeg",
+    "createdAt": "2025-01-05T12:00:00Z"
+  },
+  {
+    "id": "p-1014",
+    "name": "Dream Petals Eau de Parfum 70ml",
+    "brand": "Lure Essence",
+    "category": "Women",
+    "price": 3990,
+    "rating": 4.8,
+    "inStock": true,
+    "image": "/images/product05.jpeg",
+    "createdAt": "2025-03-10T09:45:00Z"
+  },
+  {
+    "id": "p-1015",
+    "name": "Cedarwood Intense 90ml",
+    "brand": "Nosteza",
+    "category": "Men",
+    "price": 4200,
+    "rating": 4.5,
+    "inStock": true,
+    "image": "/images/product03.jpeg",
+    "createdAt": "2024-12-02T13:25:00Z"
+  },
+  {
+    "id": "p-1016",
+    "name": "Lotus Serenity 50ml",
+    "brand": "Fiorenza",
+    "category": "Unisex",
+    "price": 2850,
+    "rating": 4.2,
+    "inStock": true,
+    "image": "/images/product01.jpeg",
+    "createdAt": "2025-04-18T15:35:00Z"
+  },
+  {
+    "id": "p-1017",
+    "name": "Evening Charm Eau de Parfum 75ml",
+    "brand": "Lure Essence",
+    "category": "Women",
+    "price": 3700,
+    "rating": 4.6,
+    "inStock": false,
+    "image": "/images/product02.jpeg",
+    "createdAt": "2025-01-30T19:15:00Z"
+  },
+    {
+    "id": "p-1917",
+    "name": "Evening Charm Eau de Parfum 75ml",
+    "brand": "Lure Essence",
+    "category": "men",
+    "price": 9700,
+    "rating": 4.6,
+    "inStock": true,
+    "image": "/images/product06.jpeg",
+    "createdAt": "2025-01-30T19:15:00Z"
+  }
+]
