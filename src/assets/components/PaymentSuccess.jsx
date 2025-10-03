@@ -10,7 +10,7 @@ export default function PaymentSuccess({ orderTotal, itemCount, onClose }) {
       >
         ✕
       </button>
-
+      
       <div className="text-green-600 text-6xl mb-4">✔</div>
       <h2 className="text-2xl font-bold mb-2">Payment Successful!</h2>
       <p className="text-gray-700 mb-6">
