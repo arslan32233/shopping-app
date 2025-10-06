@@ -12,9 +12,9 @@ body {
 }
 .container {
   max-width: 1200px;
-  margin: auto;
+  margin: 0 40px;
+  padding: 0 40px; /* dono sides se space */
 }
-
 .search-bar {
   margin: 20px 0;
   text-align: center;
@@ -33,6 +33,8 @@ body {
   gap: 20px;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 }
+
+
 @media (min-width: 1024px) {
   .grid {
     grid-template-columns: repeat(4, 1fr);

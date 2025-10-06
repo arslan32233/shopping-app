@@ -1,84 +1,57 @@
-// src/components/StripeCheckout.jsx
 import React, { useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements, CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
-import PaymentSuccess from "./PaymentSuccess";
+import PaymentSuccess from "./PaymentSuccess"; // ✅ import your success component
 
 const stripePromise = loadStripe("pk_test_51SDPPtKZ22dbf9hVBKrCOGoQTZClyrZR2LJdzh3FQjXkBLIU1TNKwNdOZmS9Ibv2fO6UrBtoy9VOAFlGG2lUPcXw00VwBUCCBA");
 
-function CheckoutForm({ cart, total, onSuccess, onClose }) {
+// ✅ Checkout Form
+function CheckoutForm({ cart, total, onSuccess }) {
   const stripe = useStripe();
   const elements = useElements();
   const [loading, setLoading] = useState(false);
-  const [paymentError, setPaymentError] = useState(null);
-  const [cardComplete, setCardComplete] = useState(false);
-  const [cardValid, setCardValid] = useState(false);
-  const [validationMessage, setValidationMessage] = useState("");
+  const [error, setError] = useState("");
+  const [validCard, setValidCard] = useState(false);
 
-  const handleCardChange = (event) => {
-    setPaymentError(null);
-    if (event.complete) {
-      setCardComplete(true);
-      setValidationMessage("✓ Card looks good!");
-    } else {
-      setCardComplete(false);
-      setValidationMessage("");
-    }
-    if (event.error) {
-      setCardValid(false);
-      setValidationMessage(event.error.message);
-    } else {
-      setCardValid(true);
-    }
+  const handleCardChange = (e) => {
+    setError(e.error ? e.error.message : "");
+    setValidCard(e.complete);
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    setPaymentError(null);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-    if (!stripe || !elements) {
-      setPaymentError("Stripe not ready.");
-      return;
-    }
-    if (!cardComplete || !cardValid) {
-      setPaymentError("Please enter valid card info.");
+    if (!stripe || !elements) return;
+    if (!validCard) {
+      setError("Please enter a valid card.");
       return;
     }
 
     setLoading(true);
     try {
-      const cardElement = elements.getElement(CardElement);
       const { error } = await stripe.createPaymentMethod({
         type: "card",
-        card: cardElement,
+        card: elements.getElement(CardElement),
       });
 
       if (error) {
-        setPaymentError(error.message || "Payment failed.");
-        setLoading(false);
-        return;
+        setError(error.message);
+      } else {
+        // ✅ Simulate successful payment
+        setTimeout(() => {
+          onSuccess(); // clear cart + show success screen
+        }, 1000);
       }
-
-      await new Promise((r) => setTimeout(r, 1000));
-      onSuccess && onSuccess();
     } catch (err) {
-      console.error(err);
-      setPaymentError("Payment failed. Try again.");
+      setError("Payment failed. Try again.");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-lg p-6 relative">
-      <button
-        onClick={onClose}
-        className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-8 h-8"
-      >
-        ✕
-      </button>
-
-      <h2 className="text-2xl font-bold text-center mb-4">Stripe Checkout (Demo)</h2>
+    <div className="bg-white rounded-lg shadow-lg p-6">
+      <h2 className="text-2xl font-bold text-center mb-4">Stripe Checkout</h2>
 
       <div className="mb-4">
         <h3 className="font-semibold mb-2">Order Summary</h3>
@@ -110,16 +83,11 @@ function CheckoutForm({ cart, total, onSuccess, onClose }) {
             onChange={handleCardChange}
           />
         </div>
-        {validationMessage && (
-          <p className={`text-sm mt-2 ${cardValid ? "text-green-600" : "text-red-500"}`}>
-            {validationMessage}
-          </p>
-        )}
-        {paymentError && <p className="text-red-500 text-sm mt-2">{paymentError}</p>}
+        {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
 
         <button
           type="submit"
-          disabled={loading || !stripe || !cardComplete || !cardValid}
+          disabled={loading || !stripe}
           className="w-full py-3 px-4 rounded-lg font-semibold bg-blue-600 text-white hover:bg-blue-800 disabled:bg-gray-400"
         >
           {loading ? "Processing..." : `Pay ₨ ${total}`}
@@ -129,22 +97,34 @@ function CheckoutForm({ cart, total, onSuccess, onClose }) {
   );
 }
 
-export default function StripeCheckout({ cart = [], onClose, onSuccess }) {
-  const [showSuccess, setShowSuccess] = useState(false);
+// ✅ Main Component
+export default function StripeCheckout({ cart = [] }) {
+  const [paid, setPaid] = useState(false);
   const total = cart.reduce((acc, item) => acc + item.price * item.qty, 0);
 
+  // ✅ clear cart + show success screen
   const handleSuccess = () => {
-    setShowSuccess(true);
-    onSuccess && onSuccess();
+    localStorage.removeItem("cart");
+    setPaid(true);
   };
 
-  if (showSuccess) {
-    return <PaymentSuccess orderTotal={total} itemCount={cart.length} onClose={onClose} />;
-  }
+  // ✅ close success screen
+  const handleClose = () => {
+    setPaid(false);
+    window.location.href = "/"; // redirect to home (optional)
+  };
 
   return (
     <Elements stripe={stripePromise}>
-      <CheckoutForm cart={cart} total={total} onSuccess={handleSuccess} onClose={onClose} />
+      {paid ? (
+        <PaymentSuccess
+          orderTotal={total}
+          itemCount={cart.length}
+          onClose={handleClose}
+        />
+      ) : (
+        <CheckoutForm cart={cart} total={total} onSuccess={handleSuccess} />
+      )}
     </Elements>
   );
 }

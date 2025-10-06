@@ -35,10 +35,10 @@ export default function ProductList() {
 
   return (
     <>
-      {/* 🔹 Header Section */}
+    
       <header className="bg-gradient-to-r from-blue-50 to-blue-100 shadow-lg rounded-xl p-6 mb-8">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-          {/* 🛍️ Logo */}
+       
           <div className="flex items-center gap-2">
             <span className="text-3xl">🛒</span>
             <h1 className="text-3xl font-extrabold text-blue-700 tracking-wide">
@@ -46,9 +46,9 @@ export default function ProductList() {
             </h1>
           </div>
 
-          {/* 🔹 Filter Bar (All in one line) */}
+       
           <div className="flex flex-wrap items-center justify-center gap-4">
-            {/* Brand Filter */}
+     
             <select
               value={selectedBrand}
               onChange={(e) => setSelectedBrand(e.target.value)}
@@ -88,8 +88,48 @@ export default function ProductList() {
           </div>
         </div>
       </header>
+<marquee class="sale-marquee" behavior="scroll" direction="left" scrollamount="10" >
+  <div></div>
+</marquee>
+<div
+  style={{
+    width: "100%",
+    overflow: "",
+    background: "linear-gradient(90deg, #ff6a00, #ee0979)", // Gradient colors
+    color: "white",
+    fontWeight: "700",
+    textTransform: "uppercase",
+    letterSpacing: "2px",
+    fontSize: "18px",
+    padding: "10px 20px", // balanced top-bottom spacing
+    borderRadius: "8px",
+    boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)",
+    position: "relative",
+    display: "flex",
+    alignItems: "center",
+  }}
+>
+  <div
+    style={{
+      display: "cent",
+      whiteSpace: "nowrap",
+      animation: "moveText 12s linear infinite",
+    }}
+  >
+    🔥 Hot Deals — Up to 70% OFF Today! 💥
+  </div>
 
-      {/* 🔹 Product Grid */}
+  <style>
+    {`@keyframes moveText {
+      from { transform: translateX(100%); } /* start from right edge */
+      to { transform: translateX(-100%); }   /* move all the way left */
+    }`}
+  </style>
+</div>
+
+
+
+
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-4">
         {filteredProducts.length > 0 ? (
           filteredProducts.map((p) => (
